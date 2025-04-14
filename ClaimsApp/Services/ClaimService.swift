@@ -15,11 +15,26 @@ final class ClaimService: ClaimServiceProtocol {
     
     func fetchClaims() -> AnyPublisher<[Claim], Error> {
         var request = URLRequest(url: baseURL)
-        request.httpMethod = "POST"
+        request.httpMethod = "GET"
 
         return URLSession.shared.dataTaskPublisher(for: request)
-            .map(\.data)
-            .decode(type: Claims.self, decoder: JSONDecoder())
+            .tryMap { result in
+                guard let response = result.response as? HTTPURLResponse,
+                      200..<300 ~= response.statusCode else {
+                    throw NetworkError.invalidResponse
+                }
+                return result.data
+            }
+            .decode(type: [Claim].self, decoder: JSONDecoder())
+            .mapError { error -> Error in
+                if let decodingError = error as? DecodingError {
+                    return NetworkError.decodingError
+                } else if let serviceError = error as? NetworkError {
+                    return serviceError
+                } else {
+                    return NetworkError.serverError(error.localizedDescription)
+                }
+            }
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
     }
