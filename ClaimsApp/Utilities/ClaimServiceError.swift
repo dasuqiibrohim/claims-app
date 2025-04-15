@@ -1,5 +1,5 @@
 //
-//  NetworkError.swift
+//  ClaimServiceError.swift
 //  ClaimsApp
 //
 //  Created by Mufallah FD on 15/04/25.

@@ -29,7 +29,7 @@ import Combine
 //        }
 //    }
 //
-    func fetchClaims() async {
+    func fetchClaims() {
         claimService.fetchClaims()
             .sink(
                 receiveCompletion: { completion in
@@ -42,7 +42,8 @@ import Combine
                         }
                     case .finished: break
                     }
-                }, receiveValue: { claims in
+                },
+                receiveValue: { claims in
                     self.claims = claims
                 }
             ) .store(in: &cancellables)
