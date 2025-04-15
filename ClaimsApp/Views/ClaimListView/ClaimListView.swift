@@ -17,14 +17,14 @@ struct ClaimListView: View {
                     ProgressView("Loading Claims...")
                         .padding()
                 } else {
-                    List(viewModel.claims) { claim in
+                    List(viewModel.filteredClaims) { claim in
                         NavigationLink(destination: ClaimDetailView(claim: claim)) { ClaimRowView(claim: claim) }
                     }
                     .listStyle(PlainListStyle())
                 }
             }
             .navigationTitle("Claims")
-            .searchable(text: .constant(""), prompt: "Search Claims...")
+            .searchable(text: $viewModel.searchText, prompt: "Search Claims...")
             .alert(isPresented: Binding<Bool>(
                 get: { viewModel.errorMessage != nil },
                 set: { _ in viewModel.errorMessage = nil }
