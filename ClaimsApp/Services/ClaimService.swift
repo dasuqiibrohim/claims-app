@@ -21,18 +21,18 @@ final class ClaimService: ClaimServiceProtocol {
             .tryMap { result in
                 guard let response = result.response as? HTTPURLResponse,
                       200..<300 ~= response.statusCode else {
-                    throw NetworkError.invalidResponse
+                    throw ClaimServiceError.invalidResponse
                 }
                 return result.data
             }
             .decode(type: [Claim].self, decoder: JSONDecoder())
             .mapError { error -> Error in
                 if let decodingError = error as? DecodingError {
-                    return NetworkError.decodingError
-                } else if let serviceError = error as? NetworkError {
+                    return ClaimServiceError.decodingError
+                } else if let serviceError = error as? ClaimServiceError {
                     return serviceError
                 } else {
-                    return NetworkError.serverError(error.localizedDescription)
+                    return ClaimServiceError.serverError(error.localizedDescription)
                 }
             }
             .receive(on: DispatchQueue.main)
