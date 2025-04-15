@@ -18,7 +18,7 @@ struct ClaimListView: View {
                         .padding()
                 } else {
                     List(viewModel.claims) { claim in
-                        ClaimRowView(claim: claim)
+                        NavigationLink(destination: ClaimDetailView(claim: claim)) { ClaimRowView(claim: claim) }
                     }
                     .listStyle(PlainListStyle())
                 }
