@@ -18,14 +18,14 @@ import Combine
     private let claimService: ClaimServiceProtocol
     private var cancellables = Set<AnyCancellable>()
     var searchCancellabel: AnyCancellable?
-    
+
     init(service: ClaimServiceProtocol = ClaimService()) {
         self.claimService = service
         fetchClaims()
         setupSearch()
     }
-    
-    func fetchClaims() {
+
+    private func fetchClaims() {
         isLoading = true
         errorMessage = nil
         
@@ -47,7 +47,7 @@ import Combine
             }
             .store(in: &cancellables)
     }
-    func setupSearch() {
+    private func setupSearch() {
         $searchText
             .removeDuplicates()
             .debounce(for: .milliseconds(300), scheduler: DispatchQueue.main)

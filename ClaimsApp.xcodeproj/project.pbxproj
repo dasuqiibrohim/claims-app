@@ -6,8 +6,19 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXContainerItemProxy section */
+		EF661B952DAE38A50025DCAA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EF661B382DADC30C0025DCAA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EF661B3F2DADC30C0025DCAA;
+			remoteInfo = ClaimsApp;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		EF661B402DADC30C0025DCAA /* ClaimsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClaimsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF661B912DAE38A50025DCAA /* ClaimsAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClaimsAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -16,10 +27,22 @@
 			path = ClaimsApp;
 			sourceTree = "<group>";
 		};
+		EF661B922DAE38A50025DCAA /* ClaimsAppTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = ClaimsAppTests;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		EF661B3D2DADC30C0025DCAA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF661B8E2DAE38A50025DCAA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -33,6 +56,7 @@
 			isa = PBXGroup;
 			children = (
 				EF661B422DADC30C0025DCAA /* ClaimsApp */,
+				EF661B922DAE38A50025DCAA /* ClaimsAppTests */,
 				EF661B412DADC30C0025DCAA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -41,6 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				EF661B402DADC30C0025DCAA /* ClaimsApp.app */,
+				EF661B912DAE38A50025DCAA /* ClaimsAppTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -70,6 +95,29 @@
 			productReference = EF661B402DADC30C0025DCAA /* ClaimsApp.app */;
 			productType = "com.apple.product-type.application";
 		};
+		EF661B902DAE38A50025DCAA /* ClaimsAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EF661B972DAE38A50025DCAA /* Build configuration list for PBXNativeTarget "ClaimsAppTests" */;
+			buildPhases = (
+				EF661B8D2DAE38A50025DCAA /* Sources */,
+				EF661B8E2DAE38A50025DCAA /* Frameworks */,
+				EF661B8F2DAE38A50025DCAA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EF661B962DAE38A50025DCAA /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				EF661B922DAE38A50025DCAA /* ClaimsAppTests */,
+			);
+			name = ClaimsAppTests;
+			packageProductDependencies = (
+			);
+			productName = ClaimsAppTests;
+			productReference = EF661B912DAE38A50025DCAA /* ClaimsAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -82,6 +130,10 @@
 				TargetAttributes = {
 					EF661B3F2DADC30C0025DCAA = {
 						CreatedOnToolsVersion = 16.2;
+					};
+					EF661B902DAE38A50025DCAA = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = EF661B3F2DADC30C0025DCAA;
 					};
 				};
 			};
@@ -100,12 +152,20 @@
 			projectRoot = "";
 			targets = (
 				EF661B3F2DADC30C0025DCAA /* ClaimsApp */,
+				EF661B902DAE38A50025DCAA /* ClaimsAppTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		EF661B3E2DADC30C0025DCAA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF661B8F2DAE38A50025DCAA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -122,7 +182,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EF661B8D2DAE38A50025DCAA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EF661B962DAE38A50025DCAA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EF661B3F2DADC30C0025DCAA /* ClaimsApp */;
+			targetProxy = EF661B952DAE38A50025DCAA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		EF661B4C2DADC30D0025DCAA /* Debug */ = {
@@ -310,6 +385,42 @@
 			};
 			name = Release;
 		};
+		EF661B982DAE38A50025DCAA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = GXW53BG9XB;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = mfd.id.ClaimsAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ClaimsApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ClaimsApp";
+			};
+			name = Debug;
+		};
+		EF661B992DAE38A50025DCAA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = GXW53BG9XB;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = mfd.id.ClaimsAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ClaimsApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ClaimsApp";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -327,6 +438,15 @@
 			buildConfigurations = (
 				EF661B4F2DADC30D0025DCAA /* Debug */,
 				EF661B502DADC30D0025DCAA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EF661B972DAE38A50025DCAA /* Build configuration list for PBXNativeTarget "ClaimsAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF661B982DAE38A50025DCAA /* Debug */,
+				EF661B992DAE38A50025DCAA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

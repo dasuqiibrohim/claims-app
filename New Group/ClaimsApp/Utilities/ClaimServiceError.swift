@@ -12,15 +12,6 @@ enum ClaimServiceError: LocalizedError {
     case invalidResponse
     case decodingError
     case serverError(String)
-    case custom(Error)
-    
-    init(error: Error) {
-        if let apiError = error as? ClaimServiceError {
-            self = apiError
-        } else {
-            self = .custom(error)
-        }
-    }
     
     var errorDescription: String? {
         switch self {
@@ -28,7 +19,6 @@ enum ClaimServiceError: LocalizedError {
         case .invalidResponse: return "Invalid server response."
         case .decodingError: return "Failed to read data from server."
         case .serverError(let message): return message
-        case .custom(let err): return err.localizedDescription
         }
     }
 }
