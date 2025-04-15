@@ -17,10 +17,14 @@ struct ClaimListView: View {
                     ProgressView("Loading Claims...")
                         .padding()
                 } else {
-                    List(viewModel.filteredClaims) { claim in
-                        NavigationLink(destination: ClaimDetailView(claim: claim)) { ClaimRowView(claim: claim) }
+                    if viewModel.filteredClaims.isEmpty {
+                        EmptyStateView()
+                    } else {
+                        List(viewModel.filteredClaims) { claim in
+                            NavigationLink(destination: ClaimDetailView(claim: claim)) { ClaimRowView(claim: claim) }
+                        }
+                        .listStyle(PlainListStyle())
                     }
-                    .listStyle(PlainListStyle())
                 }
             }
             .navigationTitle("Claims")
