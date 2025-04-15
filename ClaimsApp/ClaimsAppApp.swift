@@ -11,7 +11,8 @@ import SwiftUI
 struct ClaimsAppApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ClaimListView()
+                .preferredColorScheme(.light)
         }
     }
 }
