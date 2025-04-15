@@ -25,9 +25,9 @@ final class ClaimService: ClaimServiceProtocol {
                 }
                 return result.data
             }
-            .decode(type: [Claim].self, decoder: JSONDecoder())
+            .decode(type: Claims.self, decoder: JSONDecoder())
             .mapError { error -> Error in
-                if let decodingError = error as? DecodingError {
+                if error is DecodingError {
                     return ClaimServiceError.decodingError
                 } else if let serviceError = error as? ClaimServiceError {
                     return serviceError

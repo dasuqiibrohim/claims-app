@@ -13,6 +13,7 @@ struct ClaimRowView: View {
         VStack(alignment: .leading, spacing: 4) {
             Text(claim.title)
                 .font(.headline)
+                .lineLimit(1)
             Text(claim.body)
                 .font(.subheadline)
                 .lineLimit(2)

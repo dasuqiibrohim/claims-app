@@ -19,6 +19,7 @@ import Combine
 
     init(service: ClaimServiceProtocol = ClaimService()) {
         self.claimService = service
+        fetchClaims()
     }
 
 //    var filteredClaims: [Claim] {
@@ -30,22 +31,24 @@ import Combine
 //    }
 //
     func fetchClaims() {
+        isLoading = true
+        errorMessage = nil
+        
         claimService.fetchClaims()
-            .sink(
-                receiveCompletion: { completion in
-                    switch completion {
-                    case .failure(let error):
-                        if let claimError = error as? ClaimServiceError {
-                            self.errorMessage = claimError.errorDescription
-                        } else {
-                            self.errorMessage = error.localizedDescription
-                        }
-                    case .finished: break
+            .sink { [weak self] completion in
+                self?.isLoading = false
+                switch completion {
+                case .failure(let error):
+                    if let claimError = error as? ClaimServiceError {
+                        self?.errorMessage = claimError.errorDescription
+                    } else {
+                        self?.errorMessage = error.localizedDescription
                     }
-                },
-                receiveValue: { claims in
-                    self.claims = claims
+                case .finished: break
                 }
-            ) .store(in: &cancellables)
+            } receiveValue: { [weak self] claims in
+                self?.claims = claims
+            }
+            .store(in: &cancellables)
     }
 }

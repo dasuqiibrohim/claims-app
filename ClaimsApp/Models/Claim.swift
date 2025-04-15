@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Claim: Codable {
+struct Claim: Codable, Identifiable {
     let userID, id: Int
     let title, body: String
 
