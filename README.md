@@ -78,7 +78,7 @@ All unit tests for the ClaimsApp project have passed successfully. The test suit
 1. Clone the repository
 
    ```bash
-   git clone https://github.com/username/claims-app.git
+   git clone https://github.com/dasuqiibrohim/claims-app.git
    
 2. Open the project in Xcode
    > open ClaimsApp.xcodeproj
