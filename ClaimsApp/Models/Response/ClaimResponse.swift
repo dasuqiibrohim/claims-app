@@ -1,13 +1,11 @@
 //
-//  Claim.swift
+//  ClaimResponse.swift
 //  ClaimsApp
 //
-//  Created by Mufallah FD on 15/04/25.
+//  Created by Mufallah FD on 21/04/25.
 //
 
-import Foundation
-
-struct Claim: Codable, Identifiable {
+struct ClaimResponse: Codable, Identifiable {
     let userID, id: Int
     let title, body: String
 
@@ -16,5 +14,3 @@ struct Claim: Codable, Identifiable {
         case id, title, body
     }
 }
-
-typealias Claims = [Claim]

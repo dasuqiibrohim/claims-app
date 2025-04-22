@@ -17,7 +17,7 @@ struct ClaimRowView: View {
             Text(claim.body)
                 .font(.subheadline)
                 .lineLimit(2)
-            Text("Claim ID: \(claim.id) | Claimant ID: \(claim.userID)")
+            Text("Claim ID: \(claim.id) | Claimant ID: \(claim.userID) | Name: \(claim.name)")
                 .font(.caption)
                 .foregroundColor(.gray)
         }
